@@ -8,6 +8,7 @@
 body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
+    padding: 0;
     line-height: 1.6;
     background-color: var(--bg-light);
     color: var(--text-dark);
@@ -24,6 +25,14 @@ header {
     background: white;
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+}
+
+/* About Section */
+.about {
+    padding: 20px 0;
+    background: #f9f9f9;
 }
 
 nav {
@@ -66,17 +75,58 @@ nav {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(255, 153, 52, 0.3);
 }
-
 /* Hero Section */
 .hero {
-    padding: 40px 0;
-    background: linear-gradient(135deg, #fff 0%, #eef2f3 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
+
+#ryr1-canvas,
+.ryr1-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px;
 }
 
 .hero-content {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.profile-pic {
+    flex-shrink: 0;
 }
 
 .profile-pic img {
@@ -88,10 +138,19 @@ nav {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.bio {
+    flex: 1;
+    background: rgba(255, 248, 243, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+}
+
 .highlight { color: var(--accent); }
 
 h1, h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
 h2 {
@@ -99,7 +158,7 @@ h2 {
 }
 
 /* Projects */
-.projects { padding: 30px 0; }
+.projects { padding: 20px 0; }
 
 .project-grid {
     display: grid;
@@ -109,7 +168,7 @@ h2 {
 }
 
 .project-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     padding: 30px;
     border-radius: 12px;
     border-left: 5px solid var(--accent);
@@ -147,8 +206,8 @@ h2 {
 
 /* Skills */
 .skills {
-    padding: 30px 0;
-    background: white;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .skill-category {
@@ -194,5 +253,12 @@ footer p {
     margin: 0;
 }
 @media (max-width: 768px) {
-    .hero-content { flex-direction: column; text-align: center; }
+    .hero-content { 
+        gap: 20px;
+    }
+    
+    .bio {
+        background: rgba(255, 248, 243, 0.8);
+        width: 100%;
+    }
 }

@@ -12,6 +12,10 @@
 </head>
 <body>
 
+    <section class="hero">
+        <canvas id="ryr1-canvas" class="ryr1-background"></canvas>
+    </section>
+
     <header>
         <nav>
             <div class="logo">Kathryn Morrison</div>
@@ -23,9 +27,9 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="about">
         <div class="container">
-            <div class="hero-content">
+            <div class="about-content">
                 <div class="profile-pic">
                     <img src="katie.jpg" alt="Professional Portrait">
                 </div>
@@ -35,7 +39,6 @@
                     <p>
                         Outgoing and detail-oriented scientist with theoretical and hands-on experience in research and applications of molecular biology and genetic engineering, including 3+ years of experience in CRISPR plasmid design and cloning. Recently graduated with an M.S. in Biotechnology with concentration in Bioinformatics at Johns Hopkins University. Skilled in computational tools and biological data analysis that complements wet lab expertise.
                     </p>
-                    <!-- <p class="tagline">Collaborative. Adaptable. Generally Palatable.</p> -->
                 </div>
             </div>
         </div>
@@ -110,5 +113,15 @@
         <p>&copy; 2026 Kathryn Morrison.</p>
     </footer>
 
+    <script type="module">
+        import SimpleViewer from './simple-viewer.js';
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('ryr1-canvas');
+            new SimpleViewer(canvas);
+        });
+    </script>
+
 </body>
 </html>
+
