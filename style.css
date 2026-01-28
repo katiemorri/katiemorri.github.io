@@ -1,12 +1,12 @@
 :root {
-    --primary: #2c3e50;
-    --accent: #3498db;
-    --bg-light: #f4f7f6;
+    --primary: #D94F6A;
+    --accent: #FF9934;
+    --bg-light: #FFF8F3;
     --text-dark: #333;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito', sans-serif;
     margin: 0;
     line-height: 1.6;
     background-color: var(--bg-light);
@@ -49,24 +49,34 @@ nav {
     transition: 0.3s;
 }
 
+.social-links a:hover {
+    color: var(--accent);
+}
+
 .resume-btn {
     background: var(--accent);
     color: white !important;
     padding: 8px 15px;
     border-radius: 5px;
     font-size: 0.9rem !important;
+    transition: 0.3s;
+}
+
+.resume-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 153, 52, 0.3);
 }
 
 /* Hero Section */
 .hero {
-    padding: 80px 0;
+    padding: 40px 0;
     background: linear-gradient(135deg, #fff 0%, #eef2f3 100%);
 }
 
 .hero-content {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 5px;
 }
 
 .profile-pic img {
@@ -80,12 +90,20 @@ nav {
 
 .highlight { color: var(--accent); }
 
+h1, h2 {
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    margin-top: 0;
+}
+
 /* Projects */
-.projects { padding: 60px 0; }
+.projects { padding: 30px 0; }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 30px;
     margin-top: 30px;
 }
@@ -104,16 +122,77 @@ nav {
 
 .tech-tag {
     display: inline-block;
-    background: #e1ecf4;
-    color: #39739d;
+    background: #F5E1E8;
+    color: var(--primary);
     padding: 4px 10px;
     font-size: 0.75rem;
     border-radius: 4px;
     margin-top: 10px;
+    margin-right: 8px;
     font-weight: bold;
 }
 
-/* Responsive */
+.github-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.github-link:hover {
+    color: var(--accent);
+}
+
+/* Skills */
+.skills {
+    padding: 30px 0;
+    background: white;
+}
+
+.skill-category {
+    margin-bottom: 30px;
+}
+
+.skill-category h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-item {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent);
+    transition: 0.3s;
+}
+
+.skill-item:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
 @media (max-width: 768px) {
     .hero-content { flex-direction: column; text-align: center; }
 }
