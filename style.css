@@ -69,6 +69,7 @@ nav {
     border-radius: 5px;
     font-size: 0.9rem !important;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
 .resume-btn:hover {
