@@ -141,7 +141,7 @@ header {
 
 .bio {
     flex: 1;
-    background: rgba(255, 248, 243, 0.8);
+    background: rgba(255, 248, 243, 0.7);
     padding: 30px;
     border-radius: 12px;
     backdrop-filter: blur(10px);
@@ -151,7 +151,8 @@ header {
 .highlight { color: var(--accent); }
 
 h1, h2 {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.1rem;
 }
 
 h2 {
