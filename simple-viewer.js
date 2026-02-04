@@ -20,6 +20,9 @@ class SimpleViewer {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+    // Detect mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     // Scene
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xffffff);
@@ -29,14 +32,14 @@ class SimpleViewer {
     this.camera.position.set(0, 50, 120);
     this.camera.lookAt(0, 0, 0);
 
-    // Renderer
+    // Renderer - optimized for mobile
     this.renderer = new THREE.WebGLRenderer({ 
       canvas: this.canvas,
-      antialias: true,
-      precision: 'highp'
+      antialias: !isMobile,
+      precision: isMobile ? 'mediump' : 'highp'
     });
     this.renderer.setSize(width, height);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    this.renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5));
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
@@ -98,11 +101,14 @@ class SimpleViewer {
     const positions = geometryAtoms.getAttribute('position');
     const colors = geometryAtoms.getAttribute('color');
     const totalAtoms = positions.count;
-    const rejectionRate = 0.6; // Skip 60% of atoms for performance
+    
+    // Detect mobile for rejection rate
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const rejectionRate = isMobile ? 0.8 : 0.6; // Skip 80% on mobile, 60% on desktop
     const renderedAtoms = Math.floor(totalAtoms * (1 - rejectionRate));
 
     // Use IcosahedronGeometry for atoms
-    const atomGeometry = new THREE.IcosahedronGeometry(1, 1);
+    const atomGeometry = new THREE.IcosahedronGeometry(1, isMobile ? 0 : 1);
     const atomMaterial = new THREE.MeshPhongMaterial({
       shininess: 100,
       emissive: 0x111111

@@ -22,7 +22,7 @@
             <div class="social-links">
                 <a href="https://github.com/katiemorri" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/kathryn-morrison-254419239/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="Kathryn_Morrison_Resume_Jan_26.pdf" class="resume-btn" download>Download Resume <i class="fas fa-file-download"></i></a>
+                <a href="Kathryn_Morrison_Resume_Feb_26.pdf" class="resume-btn" download>Download Resume <i class="fas fa-file-download"></i></a>
             </div>
         </nav>
     </header>
@@ -50,28 +50,35 @@ Hello! In the background of this website is a 3D render of the RYR1 protein,
 
     <section class="skills">
         <div class="container">
-            <h2>Technical Stack</h2>
+            <h2>Skills</h2>
             <div class="skill-category">
-                <h3>Computational & Data Analysis</h3>
-                <div class="skill-list">
-                    <span class="skill-item">SQL</span>
-                    <span class="skill-item">R</span>
+                <h3 class="collapsible">Bioinformatics & Data Analysis <i class="fas fa-chevron-down"></i></h3>
+                <div class="skill-list collapsible-content">
                     <span class="skill-item">Python</span>
-                    <span class="skill-item">Data Analysis</span>
+                    <span class="skill-item">R</span>
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">LLM-Based Protein Modeling</span>
                     <span class="skill-item">Bioinformatics Databases</span>
                     <span class="skill-item">DNA Sequencing & Analysis</span>
-                    <span class="skill-item">LLM-Based Protein Modeling</span>
+                    <span class="skill-item">Data Visualization</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Laboratory & Methodology</h3>
-                <div class="skill-list">
-                    <span class="skill-item">CRISPR Plasmid Design & HDR Cloning</span>
+                <h3 class="collapsible">Genetic Engineering <i class="fas fa-chevron-down"></i></h3>
+                <div class="skill-list collapsible-content">
+                    <span class="skill-item">CRISPR/Cas9 Plasmid Design</span>
+                    <span class="skill-item">HDR Cloning</span>
                     <span class="skill-item">Recombinant Technology</span>
-                    <span class="skill-item">Protocol Development & Optimization</span>
-                    <span class="skill-item">Laboratory Procedures</span>
-                    <span class="skill-item">Documentation & Technical Reporting</span>
+                    <span class="skill-item">Advanced Laboratory Procedures</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="collapsible">Leadership & Operations <i class="fas fa-chevron-down"></i></h3>
+                <div class="skill-list collapsible-content">
                     <span class="skill-item">Supervisory Experience</span>
+                    <span class="skill-item">Collaboration</span>
+                    <span class="skill-item">Protocol Development & Optimization</span>
+                    <span class="skill-item">Quality Control</span>
                 </div>
             </div>
         </div>
@@ -123,6 +130,24 @@ Hello! In the background of this website is a 3D render of the RYR1 protein,
         window.addEventListener('DOMContentLoaded', () => {
             const canvas = document.getElementById('ryr1-canvas');
             new SimpleViewer(canvas);
+            
+            // Collapsible functionality
+            const collapsibles = document.querySelectorAll('.collapsible');
+            collapsibles.forEach(header => {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
         });
     </script>
 
