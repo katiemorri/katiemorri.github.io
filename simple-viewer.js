@@ -9,6 +9,7 @@ class SimpleViewer {
     this.renderer = null;
     this.proteinGroup = null;
     this.scrollRotation = 0;
+    this.ticking = false;
 
     this.init();
     this.loadProtein();
@@ -62,10 +63,16 @@ class SimpleViewer {
       this.renderer.setSize(w, h);
     });
 
-    // Handle scroll
+    // Handle scroll with passive listener and requestAnimationFrame throttling
     window.addEventListener('scroll', () => {
-      this.scrollRotation = window.scrollY * 0.001;
-    });
+      if (!this.ticking) {
+        window.requestAnimationFrame(() => {
+          this.scrollRotation = window.scrollY * 0.001;
+          this.ticking = false;
+        });
+        this.ticking = true;
+      }
+    }, { passive: true });
   }
 
   loadProtein() {
