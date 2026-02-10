@@ -14,6 +14,10 @@
 
     <section class="hero">
         <canvas id="ryr1-canvas" class="ryr1-background"></canvas>
+        <div id="interaction-hint" class="interaction-hint">
+            <i class="fas fa-mouse-pointer"></i>
+            <p><strong class="desktop-hint">Drag to rotate • Scroll to zoom</strong><strong class="mobile-hint">Drag to rotate • Pinch to zoom</strong></p>
+        </div>
     </section>
 
     <header>
@@ -47,6 +51,13 @@ Hello! In the background of this website is a 3D render of the RYR1 protein,
             </div>
         </div>
     </section>
+
+    <div class="viewer-button-container">
+        <button id="fullscreen-btn" class="fullscreen-btn" title="View protein in 3D fullscreen mode">
+            <i class="fas fa-expand"></i>
+            <span>View Protein in 3D</span>
+        </button>
+    </div>
 
     <section class="skills">
         <div class="container">
@@ -129,7 +140,42 @@ Hello! In the background of this website is a 3D render of the RYR1 protein,
         
         window.addEventListener('DOMContentLoaded', () => {
             const canvas = document.getElementById('ryr1-canvas');
-            new SimpleViewer(canvas);
+            const viewer = new SimpleViewer(canvas);
+            
+            // Fullscreen 3D viewer functionality
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const interactionHint = document.getElementById('interaction-hint');
+            const body = document.body;
+            let isFullscreen = false;
+            
+            fullscreenBtn.addEventListener('click', () => {
+                isFullscreen = !isFullscreen;
+                
+                if (isFullscreen) {
+                    body.classList.add('viewer-fullscreen');
+                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i><span>Exit 3D View</span>';
+                    viewer.enableInteractiveMode();
+                    
+                    // Show interaction hint
+                    interactionHint.classList.add('visible');
+                } else {
+                    body.classList.remove('viewer-fullscreen');
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i><span>View Protein in 3D</span>';
+                    viewer.disableInteractiveMode();
+                    interactionHint.classList.remove('visible');
+                }
+            });
+            
+            // Exit fullscreen with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isFullscreen) {
+                    isFullscreen = false;
+                    body.classList.remove('viewer-fullscreen');
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i><span>View Protein in 3D</span>';
+                    viewer.disableInteractiveMode();
+                    interactionHint.classList.remove('visible');
+                }
+            });
             
             // Collapsible functionality
             const collapsibles = document.querySelectorAll('.collapsible');
