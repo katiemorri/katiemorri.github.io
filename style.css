@@ -152,10 +152,10 @@ header {
 .bio {
     flex: 1;
     background: rgba(255, 248, 243, 0.7);
-    padding: 26px;
+    padding: 34px;
     border-radius: 12px;
     backdrop-filter: blur(10px);
-    max-width: 600px;
+    max-width: 720px;
 }
 
 .highlight { color: var(--accent); }
@@ -167,6 +167,12 @@ h1, h2 {
 
 h2 {
     margin-top: 0;
+}
+
+.bio h2 {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 /* Projects */
@@ -445,6 +451,12 @@ footer p {
     .bio {
         background: rgba(255, 248, 243, 0.8);
         width: 100%;
+        padding: 28px;
+    }
+
+    .bio h2 {
+        white-space: normal;
+        font-size: 1.18rem;
     }
     
     .fullscreen-btn {
