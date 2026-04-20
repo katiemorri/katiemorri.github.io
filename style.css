@@ -170,9 +170,19 @@ h2 {
 }
 
 .bio h2 {
-    font-size: 1.4rem;
-    line-height: 1.2;
+    font-size: 1.55rem;
+    line-height: 1.25;
+    font-weight: 600;
     white-space: nowrap;
+}
+
+.bio h2 i {
+    font-size: 0.78em;
+    font-weight: 500;
+}
+
+.bio h2 .highlight {
+    color: var(--primary);
 }
 
 /* Projects */
@@ -456,7 +466,12 @@ footer p {
 
     .bio h2 {
         white-space: normal;
-        font-size: 1.18rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .bio h2 i {
+        font-size: 0.82em;
     }
     
     .fullscreen-btn {
