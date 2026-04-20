@@ -181,8 +181,9 @@ h2 {
     font-weight: 500;
 }
 
-.bio h2 .highlight {
-    color: var(--primary);
+.bio h2 .highlight,
+.bio h2 span.highlight {
+    color: var(--primary) !important;
 }
 
 /* Projects */
