@@ -345,7 +345,7 @@ h2 {
 .fullscreen-btn {
     position: relative;
     z-index: 5;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border: none;
     padding: 12px 18px;
@@ -356,7 +356,7 @@ h2 {
     display: flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 3px 10px rgba(217, 79, 106, 0.4);
+    box-shadow: 0 3px 10px rgba(255, 153, 52, 0.4);
     transition: all 0.3s ease;
     font-family: 'Nunito', sans-serif;
 }
