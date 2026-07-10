@@ -143,7 +143,7 @@ header {
 .profile-pic img {
     width: 250px;
     height: 250px;
-    border-radius: 50%;
+    border-radius: 12px;
     object-fit: cover;
     border: 5px solid white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
